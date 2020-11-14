@@ -1,0 +1,111 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\froman\fcharset0 Times-Bold;\f1\froman\fcharset0 Times-Roman;\f2\fswiss\fcharset0 ArialMT;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c100000\c100000\c100000;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{none\}}{\leveltext\leveltemplateid1\'00;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs32 \cf2 \cb3 \expnd0\expndtw0\kerning0
+Motivation 
+\f1\b0\fs24 \cb1 \
+\pard\pardeftab720\sl340\sa240\partightenfactor0
+
+\fs29\fsmilli14667 \cf2 \cb3 In this scenario, assume that our company recently released a new app and is investigating ways to promote it. We have the ability to send notifications to our users through their web browser and are investigating if sending notifications promoting the new app is a good way to spread the word. For evaluation, we performed a test in which we sent such notifications to a small subset of users. We now want to know if we should send out such notifications to all other users as well. 
+\fs24 \cb1 \
+\pard\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs32 \cf2 \cb3 Description 
+\f1\b0\fs24 \cb1 \
+\pard\pardeftab720\sl340\sa240\partightenfactor0
+
+\fs29\fsmilli14667 \cf2 \cb3 Users were selected randomly to either take part (1%) or to not take part (99%) in the test. Once selected, we sent one of three promoting notifications to the user with equal probability. The notification then was displayed to the user using different display mechanisms depending on the browser. Notifications 0, 1 and 2 were crafted with different wording, but all three contained a link the user could click to be redirected to our website. These notifications were then translated to all relevant languages, and the language of the browser determined in which language the notification was shown. 
+\fs24 \cb1 \
+
+\fs29\fsmilli14667 \cb3 The data sample provided with this case is completely fictional and already preprocessed.
+\fs24 \cb1 \
+
+\fs29\fsmilli14667 \cb3 The data is provided in two tables. In these tables you will find (fictional) data extracted from the server logs. Each line in the table \'93logs_notifications\'94 corresponds to a request from the extension where it downloads the notifications. Each line in table \'93logs_web\'94 corresponds to a request from the user when the link included in the notifications was clicked. The columns are: 
+\fs24 \cb1 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl340\sa240\partightenfactor0
+\ls1\ilvl0
+\f2\fs29\fsmilli14667 \cf2 \cb3 \kerning1\expnd0\expndtw0 		\expnd0\expndtw0\kerning0
+\uc0\u9679  \'a0
+\f0\b Browser
+\f1\b0 : Firefox or Chrome 
+\fs24 \cb1 \uc0\u8232 \
+\ls1\ilvl0
+\f2\fs29\fsmilli14667 \cb3 \kerning1\expnd0\expndtw0 		\expnd0\expndtw0\kerning0
+\uc0\u9679  \'a0
+\f1 The 
+\f0\b date
+\f1\b0  and 
+\f0\b time 
+\f1\b0 of the request. (Format: YYYY-MM-DD hh:mm:ss) 
+\fs24 \cb1 \uc0\u8232 \
+\ls1\ilvl0
+\f2\fs29\fsmilli14667 \cb3 \kerning1\expnd0\expndtw0 		\expnd0\expndtw0\kerning0
+\uc0\u9679  \'a0
+\f1 The user\'92s 
+\f0\b IP
+\f1\b0  
+\f0\b address
+\f1\b0  , in anonymised form. 
+\fs24 \cb1 \uc0\u8232 \
+\ls1\ilvl0
+\f2\fs29\fsmilli14667 \cb3 \kerning1\expnd0\expndtw0 		\expnd0\expndtw0\kerning0
+\uc0\u9679  \'a0
+\f1 The 
+\f0\b language
+\f1\b0  of the delivered notification. (cn, de, en, es, fr, ru) 
+\fs24 \cb1 \uc0\u8232 \
+\ls1\ilvl0
+\f2\fs29\fsmilli14667 \cb3 \kerning1\expnd0\expndtw0 		\expnd0\expndtw0\kerning0
+\uc0\u9679  \'a0
+\f1 The 
+\f0\b number
+\f1\b0  of the delivered 
+\f0\b notification.
+\f1\b0  (0, 1 or 2) 
+\fs24 \cb1 \uc0\u8232 
+\f0\b\fs29\fsmilli14667 \cb3 \
+Example 
+\f1\b0\fs24 \cb1 \
+\pard\pardeftab720\sl340\sa240\partightenfactor0
+
+\fs29\fsmilli14667 \cf2 \cb3 A German user of Browser Chrome is selected to be shown notification number 2 on Sep 1st shortly after 11 o\'92clock. The corresponding log entry in \'93logs_notifications.csv\'94 looks as follows: 
+\fs24 \cb1 \
+
+\fs29\fsmilli14667 \cb3 \'93chrome\'94, \'932015-09-01 11:01:04\'94, \'93516e99d0e150152f94bd1443a679ca17\'94, \'93de\'94, \'932\'94 
+\fs24 \cb1 \
+
+\fs29\fsmilli14667 \cb3 If the user decides to click the included link a while later, there will be another log entry in \'93logs_web.csv\'94: 
+\fs24 \cb1 \
+
+\fs29\fsmilli14667 \cb3 \'93chrome\'94, \'932015-09-01 11:02:17\'94, \'93516e99d0e150152f94bd1443a679ca17\'94, \'93de\'94, \'932\'94 
+\fs24 \cb1 \
+\pard\pardeftab720\sl360\sa240\partightenfactor0
+
+\f0\b\fs32 \cf2 \cb3 Tasks 
+\f1\b0\fs24 \cb1 \
+\pard\pardeftab720\sl340\sa240\partightenfactor0
+
+\fs29\fsmilli14667 \cf2 \cb3 Assess the performances of messages 0, 1 and 2. Which one should we use if we send notifications to all users? 
+\fs24 \cb1 \
+
+\fs29\fsmilli14667 \cb3 Our translation manager thinks that one or several of the translations are crappy and look like a 4-year old could have written that. Can you confirm that? 
+\fs24 \cb1 \
+
+\fs29\fsmilli14667 \cb3 Our designer is interested if there are differences between browsers, because the mechanisms for displaying notifications for these differ. \
+\pard\pardeftab720\sl340\sa240\partightenfactor0
+
+\f0\b \cf2 Bonus:
+\f1\b0\fs24 \cb1 \
+\pard\pardeftab720\sl340\sa240\partightenfactor0
+
+\fs29\fsmilli14667 \cf2 \cb3 The Head of Business Development wants to decide if we actually should send out notifications to all users. He expects that one million or more installations should be worth it. Estimate the number of installations if we send out notifications to all users (assume that 50% of users that click the link included in the notifications will install the new app). 
+\fs24 \cb1 \
+}
